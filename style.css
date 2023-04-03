@@ -44,7 +44,7 @@ body{
 .container,.container-medium{
   margin:0 auto;
 }
-h1,input{
+h1{
   font-size: clamp(2.2rem,5vw,3.6rem);
 }
 h2{
@@ -62,7 +62,7 @@ h1,h2,h3{
 p{
   margin-bottom: clamp(1.8rem,3vw,2.5rem);
 }
-p,li{
+p,li,input{
   font-size: clamp(1.4rem,1.5vw,1.8rem);
   font-weight: 400;
   line-height: 1.7;
@@ -228,11 +228,19 @@ form{
   height:4rem;
 }
 input[type ='email']{
-  border: none;
+  border:none;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
   width: 100%;
 }
+input[type ='email']:active{
+  border: none;
+}
+form.error input{
+  border:2px solid var(--Light-Red);
+
+}
+
 .btn-footer{
   border-radius: 5px;
   padding: clamp(1rem,2.5vw,1.25rem)clamp(4rem,5vw,5rem);
@@ -241,6 +249,18 @@ input[type ='email']{
 }
 form {
   text-align: right;
+  position: relative;
+}
+.error-message{
+  font-size: 1.4rem;
+  position: absolute;
+  bottom: -70%;
+  left: 0;
+  color: var(--Light-Red);
+  display: none;
+}
+form.error .error-message{
+  display: block;
 }
 .footer-logo{
   width:clamp(20rem,22vw,25rem);
@@ -271,7 +291,7 @@ footer .left-col ul li:first-child:not(ul.flex li:first-child){
 li:hover{
   cursor: pointer;
   color: lightskyblue;
-}
+} 
 
 @media (min-width:800px) {
  main section:not(.main-sec-4){
@@ -319,7 +339,7 @@ li:hover{
   }
   
   form input[type='email']{
-    display: inline-block;
+
     text-align: left;
     margin:0 3rem 0 0;
     height: 100%;
